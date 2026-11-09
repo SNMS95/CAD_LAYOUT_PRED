@@ -4,7 +4,7 @@
 
 ## Run it
 
-Click the **Open In Colab** badge above and choose **Runtime → Run all**. The notebook installs the package, loads the trained model and shows the results. No local setup is needed.
+Click the **Open In Colab** badge above and choose **Runtime → Run all**. The notebook installs the package, loads the trained model and shows the results. No local setup is needed. Everything it reads (datasets, trained model, training curves, metrics) is in [`notebooks/data/`](notebooks/data).
 
 ## What it does
 
