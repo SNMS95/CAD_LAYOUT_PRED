@@ -30,18 +30,15 @@ Many layouts are valid for the same list, so the model is generative: each run g
 | diffusion + overlap loss + guidance + refine | 100 | 100 |
 | regressor (no diffusion) | 0 | 0 |
 
-The regressor always places every object at the room centre, so it is not a useful baseline. The overlap loss raises raw validity a lot while keeping the layouts diverse. Full numbers for all runs are in [`runs/SUMMARY.md`](runs/SUMMARY.md).
+The regressor always places every object at the room centre, so it is not a useful baseline. The overlap loss raises raw validity a lot while keeping the layouts diverse.
 
 ## Run locally (optional)
 
 ```bash
 pip install -e .
-python -m cadlayout.sample --ckpt runs/diffusion_ovl1/best.pt --objects examples/objects.json --k 8 --out outputs/sample
+echo '[{"type": "circle", "size": 0.1}, {"type": "square", "size": 0.2}]' > objects.json
+python -m cadlayout.sample --ckpt notebooks/data/diffusion_ovl1_best.pt --objects objects.json --k 8 --out outputs/sample
 ```
 
-`examples/objects.json` looks like `[{"type": "circle", "size": 0.1}, {"type": "square", "size": 0.2}]`. For circles `size` is the radius. For squares it is the side length.
+For circles `size` is the radius. For squares it is the side length.
 
-## Future ideas
-
-- [`docs/ideas/three_stage_pipeline.md`](docs/ideas/three_stage_pipeline.md): learn object shapes, arrange them, then build the room CAD.
-- [`docs/ideas/differentiable_operations_tree.md`](docs/ideas/differentiable_operations_tree.md): editable parametric CAD via a differentiable operations tree.
