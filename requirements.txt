@@ -1,0 +1,6 @@
+torch
+numpy
+shapely>=2.0
+matplotlib
+ezdxf
+pytest
